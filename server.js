@@ -132,8 +132,12 @@ app.get("*", (_req, res) => {
 // ══════════════════════════════════════════════════════════════
 //  START SERVER
 // ══════════════════════════════════════════════════════════════
-app.listen(PORT, () => {
-  console.log(`\n✅  Nimbus proxy running at http://localhost:${PORT}`);
-  console.log(`    API key: ${"*".repeat(API_KEY.length - 4)}${API_KEY.slice(-4)}`);
-  console.log(`    Weather endpoint: http://localhost:${PORT}/api/weather?city=London\n`);
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`\n✅  Nimbus proxy running at http://localhost:${PORT}`);
+    console.log(`    API key: ${"*".repeat(API_KEY.length - 4)}${API_KEY.slice(-4)}`);
+    console.log(`    Weather endpoint: http://localhost:${PORT}/api/weather?city=London\n`);
+  });
+}
+
+module.exports = app;
