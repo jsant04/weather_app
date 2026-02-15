@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════
+#  CRITICAL: .env holds your secret API key.
+#  This file ensures Git never tracks it.
+# ══════════════════════════════════════════════
+
+# Secret environment variables — NEVER commit these
+.env
+.env.local
+.env.production
+
+# Node dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
